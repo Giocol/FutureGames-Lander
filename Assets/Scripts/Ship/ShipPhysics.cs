@@ -24,8 +24,8 @@ namespace Ship
         
         private void FixedUpdate()
         {
-            rigidbody.AddForce(currentDirectionalForce, ForceMode.Impulse);
-            rigidbody.AddForce(currentTakeoffForce, ForceMode.Acceleration);
+            rigidbody.AddRelativeForce(currentDirectionalForce, ForceMode.Impulse);
+            rigidbody.AddRelativeForce(currentTakeoffForce, ForceMode.Acceleration);
         }
         
         public void EngageTakeoffThruster()
@@ -36,13 +36,11 @@ namespace Ship
 
         public void DisengageTakeoffThruster()
         {
-            Debug.Log("Takeoff thrusters disengaged");
             currentTakeoffForce = Vector3.zero;
         }
         
         public void EngageDirectionalThrusters(Vector2 direction)
         {
-            //Debug.Log($"Thrusters activated on direction {direction.x} {direction.y}");
             currentDirectionalForce = new Vector3(direction.x, 0, direction.y) * directionalThrustersForce;
         }
 
