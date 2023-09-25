@@ -29,7 +29,6 @@ public class PlayerInputHandler : MonoBehaviour {
             shipPhysics.EngageTakeoffThruster();
         }
         else {
-            //TODO: optimize this, call it only if thrusters are engaged (isEngaged property in ShipPhysics?)
             shipPhysics.DisengageTakeoffThruster();
         }
     }

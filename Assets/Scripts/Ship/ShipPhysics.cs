@@ -8,12 +8,14 @@ namespace Ship {
         private Vector3 currentDirectionalForce;
         private Vector3 currentTakeoffForce;
         private new Rigidbody rigidbody;
+        private bool isTakeoffThrusterEngaged;
 
         private void Awake() {
             rigidbody = GetComponent<Rigidbody>();
             if(!rigidbody) {
                 Debug.LogError("No rigidbody component attached to the ship found");
             }
+            isTakeoffThrusterEngaged = false;
         }
 
 
@@ -24,11 +26,17 @@ namespace Ship {
 
         public void EngageTakeoffThruster() {
             //Debug.Log("Takeoff thrusters engaged");
-            currentTakeoffForce = Vector3.up * takeoffThrusterForce;
+            if(!isTakeoffThrusterEngaged) {
+                currentTakeoffForce = Vector3.up * takeoffThrusterForce;
+                isTakeoffThrusterEngaged = true;
+            }
         }
 
         public void DisengageTakeoffThruster() {
-            currentTakeoffForce = Vector3.zero;
+            if(isTakeoffThrusterEngaged) {
+                currentTakeoffForce = Vector3.zero;
+                isTakeoffThrusterEngaged = false;
+            }
         }
 
         public void EngageDirectionalThrusters(Vector2 direction) {
