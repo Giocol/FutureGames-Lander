@@ -30,7 +30,7 @@ namespace Ship
         
         public void EngageTakeoffThruster()
         {
-            Debug.Log("Takeoff thrusters engaged");
+            //Debug.Log("Takeoff thrusters engaged");
             currentTakeoffForce = Vector3.up * takeoffThrusterForce;
         }
 
