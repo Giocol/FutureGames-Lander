@@ -160,4 +160,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   directionalThrustersForce: 10
-  takeoffThrusterForce: 100
+  takeoffThrusterForce: 10.3
