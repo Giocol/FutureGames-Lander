@@ -2,46 +2,49 @@ using Ship;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerInputHandler : MonoBehaviour {
-    private ShipPhysics shipPhysics;
-    private PlayerControls controls;
-    private InputAction directionalThrusterAction;
-    private InputAction takeoffThrusterAction;
+namespace Player
+{
+    public class PlayerInputHandler : MonoBehaviour {
+        private ShipPhysics shipPhysics;
+        private PlayerControls controls;
+        private InputAction directionalThrusterAction;
+        private InputAction takeoffThrusterAction;
 
-    private void Awake() {
-        shipPhysics = gameObject.GetComponent<ShipPhysics>();
-        //TODO: make this less brittle and less coupled
-        if(!shipPhysics) {
-            Debug.LogError("No ShipPhysics script attached to the ship found");
+        private void Awake() {
+            shipPhysics = gameObject.GetComponent<ShipPhysics>();
+            //TODO: make this less brittle and less coupled
+            if(!shipPhysics) {
+                Debug.LogError("No ShipPhysics script attached to the ship found");
+            }
+            controls = new PlayerControls();
+            directionalThrusterAction = controls.Player.DirectionalThrusters;
+            takeoffThrusterAction = controls.Player.TakeoffThruster;
         }
-        controls = new PlayerControls();
-        directionalThrusterAction = controls.Player.DirectionalThrusters;
-        takeoffThrusterAction = controls.Player.TakeoffThruster;
-    }
 
-    private void Update() {
-        ReadDirectionalInput(directionalThrusterAction.ReadValue<Vector2>());
-        ReadTakeoffInput(takeoffThrusterAction.inProgress);
-    }
-
-    private void ReadTakeoffInput(bool pressed) {
-        if(pressed) {
-            shipPhysics.EngageTakeoffThruster();
+        private void Update() {
+            ReadDirectionalInput(directionalThrusterAction.ReadValue<Vector2>());
+            ReadTakeoffInput(takeoffThrusterAction.inProgress);
         }
-        else {
-            shipPhysics.DisengageTakeoffThruster();
+
+        private void ReadTakeoffInput(bool pressed) {
+            if(pressed) {
+                shipPhysics.EngageTakeoffThruster();
+            }
+            else {
+                shipPhysics.DisengageTakeoffThruster();
+            }
         }
-    }
 
-    private void ReadDirectionalInput(Vector2 direction) {
-        shipPhysics.EngageDirectionalThrusters(direction);
-    }
+        private void ReadDirectionalInput(Vector2 direction) {
+            shipPhysics.EngageDirectionalThrusters(direction);
+        }
 
-    private void OnEnable() {
-        controls.Player.Enable();
-    }
+        private void OnEnable() {
+            controls.Player.Enable();
+        }
 
-    private void OnDisable() {
-        controls.Player.Disable();
+        private void OnDisable() {
+            controls.Player.Disable();
+        }
     }
 }
