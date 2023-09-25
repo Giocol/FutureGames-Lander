@@ -1,23 +1,17 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using Ship;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerInputHandler : MonoBehaviour
-{
+public class PlayerInputHandler : MonoBehaviour {
     private ShipPhysics shipPhysics;
     private PlayerControls controls;
     private InputAction directionalThrusterAction;
     private InputAction takeoffThrusterAction;
 
-    void Awake()
-    {
+    private void Awake() {
         shipPhysics = gameObject.GetComponent<ShipPhysics>();
         //TODO: make this less brittle and less coupled
-        if (!shipPhysics)
-        {
+        if(!shipPhysics) {
             Debug.LogError("No ShipPhysics script attached to the ship found");
         }
         controls = new PlayerControls();
@@ -25,37 +19,30 @@ public class PlayerInputHandler : MonoBehaviour
         takeoffThrusterAction = controls.Player.TakeoffThruster;
     }
 
-    private void Update()
-    {
+    private void Update() {
         ReadDirectionalInput(directionalThrusterAction.ReadValue<Vector2>());
         ReadTakeoffInput(takeoffThrusterAction.inProgress);
     }
-    
-    private void ReadTakeoffInput(bool pressed)
-    {
-        if (pressed)
-        {
+
+    private void ReadTakeoffInput(bool pressed) {
+        if(pressed) {
             shipPhysics.EngageTakeoffThruster();
         }
-        else
-        {
+        else {
             //TODO: optimize this, call it only if thrusters are engaged (isEngaged property in ShipPhysics?)
             shipPhysics.DisengageTakeoffThruster();
         }
     }
 
-    private void ReadDirectionalInput(Vector2 direction)
-    {
+    private void ReadDirectionalInput(Vector2 direction) {
         shipPhysics.EngageDirectionalThrusters(direction);
     }
-    
-    void OnEnable()
-    {
+
+    private void OnEnable() {
         controls.Player.Enable();
     }
 
-    void OnDisable()
-    {
+    private void OnDisable() {
         controls.Player.Disable();
     }
 }

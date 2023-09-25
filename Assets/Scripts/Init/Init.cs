@@ -1,13 +1,10 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace Init
-{
-    public class Init
-    {
+namespace Init {
+    public class Init {
         [RuntimeInitializeOnLoadMethod]
-        public static void InitGame()
-        {
+        public static void InitGame() {
             //init flow goes here
             /*
             var go = new GameObject();
