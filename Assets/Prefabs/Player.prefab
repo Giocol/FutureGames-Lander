@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 4884457291646222400}
   - component: {fileID: 2495962703394165668}
   - component: {fileID: 7584842640481454780}
+  - component: {fileID: 4561289022091887237}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -161,3 +162,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   directionalThrustersForce: 10
   takeoffThrusterForce: 10.3
+--- !u!114 &4561289022091887237
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5287994738825585924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bab4b64762a64808934adef5221750ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

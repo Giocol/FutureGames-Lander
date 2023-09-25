@@ -6,15 +6,20 @@ namespace Player
 {
     public class PlayerInputHandler : MonoBehaviour {
         private ShipPhysics shipPhysics;
+        private ShipComputer shipComputer;
         private PlayerControls controls;
         private InputAction directionalThrusterAction;
         private InputAction takeoffThrusterAction;
 
         private void Awake() {
             shipPhysics = gameObject.GetComponent<ShipPhysics>();
+            shipComputer = gameObject.GetComponent<ShipComputer>();
             //TODO: make this less brittle and less coupled
             if(!shipPhysics) {
                 Debug.LogError("No ShipPhysics script attached to the ship found");
+            }
+            if(!shipComputer) {
+                Debug.LogError("No ShipComputer script attached to the ship found");
             }
             controls = new PlayerControls();
             directionalThrusterAction = controls.Player.DirectionalThrusters;
