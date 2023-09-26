@@ -609,6 +609,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4561289022091887237, guid: 74b7c23a7a22ea3489a60413583477ba, type: 3}
+      propertyPath: shipHull
+      value: 
+      objectReference: {fileID: 11400000, guid: f04e510de145c2749b2e0589e38717f4, type: 2}
     - target: {fileID: 5287994738825585924, guid: 74b7c23a7a22ea3489a60413583477ba, type: 3}
       propertyPath: m_Name
       value: Player
