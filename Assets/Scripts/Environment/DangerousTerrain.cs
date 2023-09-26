@@ -9,7 +9,7 @@ namespace Environment {
         private void OnCollisionEnter(Collision other) {
             ShipComputer shipComputer = other.gameObject.GetComponent<ShipComputer>();
             if(shipComputer) {
-                shipComputer.OnCrash(damageToHull);
+                shipComputer.OnTakeDamage(damageToHull);
             }
         }
 
