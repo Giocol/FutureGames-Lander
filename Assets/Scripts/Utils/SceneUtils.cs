@@ -6,7 +6,7 @@ namespace Utils {
 
         //To avoid hardcoding string literals everywhere. Maybe move to its own data class?
         private static int currentSceneIndex;
-        
+
         public static void Init() {
             currentSceneIndex = 0;
             SceneManager.LoadScene(0);

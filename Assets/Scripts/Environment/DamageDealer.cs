@@ -2,9 +2,9 @@
 using UnityEngine;
 
 namespace Environment {
-    public class DangerousTerrain : MonoBehaviour {
+    public class DamageDealer : MonoBehaviour {
 
-        [SerializeField] private int damageToHull = 100;
+        [SerializeField] private int damageToHull;
 
         private void OnCollisionEnter(Collision other) {
             ShipComputer shipComputer = other.gameObject.GetComponent<ShipComputer>();
