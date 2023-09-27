@@ -5,16 +5,17 @@ namespace Utils {
     public static class SceneUtils {
 
         //To avoid hardcoding string literals everywhere. Maybe move to its own data class?
-        public static string MainMenuScene => "MainMenu";
-        public static string Level1Scene => "SampleScene";
-
-
-        public static void LoadScene(string sceneName) {
-            SceneManager.LoadScene(sceneName);
+        private static int currentSceneIndex;
+        
+        public static void Init() {
+            currentSceneIndex = 0;
+            SceneManager.LoadScene(0);
         }
 
-        public static void UnloadScene(string sceneName) {
-            SceneManager.UnloadSceneAsync(sceneName);
+        public static void LoadNextScene() {
+            currentSceneIndex++;
+            SceneManager.LoadScene(currentSceneIndex);
         }
+
     }
 }

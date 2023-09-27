@@ -12,7 +12,7 @@ namespace Utils {
             var gameState = go.AddComponent<GameState>();
             gameState.Initialize();
             */
-            SceneUtils.LoadScene(SceneUtils.MainMenuScene);
+            SceneUtils.Init();
         }
     }
 }

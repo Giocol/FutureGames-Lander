@@ -6,7 +6,7 @@ using Utils;
 namespace UI {
     public class MainMenu : MonoBehaviour {
         public void StartGame() {
-            SceneUtils.LoadScene(SceneUtils.Level1Scene);
+            SceneUtils.LoadNextScene();
         }
 
         public void ExitGame() {

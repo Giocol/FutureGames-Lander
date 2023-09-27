@@ -1,5 +1,7 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using Utils;
 
 namespace Ship {
     // Class that contains all the ship's status
@@ -17,6 +19,7 @@ namespace Ship {
 
         public void OnLanding() {
             Debug.Log("Landed!");
+            SceneUtils.LoadNextScene();
         }
 
         public void OnTakeDamage(int damage) {
