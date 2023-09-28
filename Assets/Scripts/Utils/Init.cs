@@ -12,6 +12,7 @@ namespace Utils {
             var gameState = go.AddComponent<GameState>();
             gameState.Initialize();
             */
+            ScoreboardUtils.Init("scoreboard.json");
             SceneUtils.Init();
         }
     }

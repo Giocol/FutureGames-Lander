@@ -9,17 +9,27 @@ namespace Ship {
 
         [SerializeField] private ShipHull shipHull;
         private bool isShipDestroyed;
+        private float timeSpentInLevel;
 
         //TODO: consider if it's better to detect collisions here rather than in the terrain
 
         private void Awake() {
             shipHull.RestoreMaxHullHp();
             isShipDestroyed = false;
+            timeSpentInLevel = 0;
+        }
+
+        private void Update() {
+            timeSpentInLevel += Time.deltaTime;
         }
 
         public void OnLanding() {
             Debug.Log("Landed!");
             SceneUtils.LoadNextScene();
+
+            LevelScore scoreSo = ScriptableObject.CreateInstance<LevelScore>();
+            scoreSo.levelName = SceneManager.GetActiveScene().name;
+            scoreSo.completionTime = timeSpentInLevel;
         }
 
         public void OnTakeDamage(int damage) {
