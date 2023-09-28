@@ -9,6 +9,9 @@ namespace AI {
         [SerializeField] private float turretRotationSpeed = 1f;
         [SerializeField] private float timeBeforeShooting = 4f;
         [SerializeField] private float reloadingTime = 2f;
+        [SerializeField] private GameObject missilePrefab;
+        [SerializeField] private float missileSpeed = 100f;
+        [SerializeField] private float missileTimeToLive = 10f;
 
         private GameObject[] targetShips;
         private bool hasCurrentTarget;
@@ -58,7 +61,10 @@ namespace AI {
 
         private void ShootMissile() {
             Debug.Log("Shoot missile!");
-
+            GameObject missile = Instantiate(missilePrefab, transform.position, transform.rotation);
+            missile.GetComponentInChildren<Rigidbody>().AddRelativeForce(Vector3.forward * (missileSpeed *Time.fixedDeltaTime), ForceMode.VelocityChange);
+            StartCoroutine(WaitSecondsAndDestroyMissile(missile));
+            
             needsToReload = true;
             StartCoroutine(Reload());
 
@@ -71,6 +77,11 @@ namespace AI {
             Debug.Log("reloading");
             yield return new WaitForSeconds(reloadingTime);
             needsToReload = false;
+        }
+
+        private IEnumerator WaitSecondsAndDestroyMissile(GameObject missile) {
+            yield return new WaitForSeconds(missileTimeToLive);
+            Destroy(missile);
         }
     }
 }

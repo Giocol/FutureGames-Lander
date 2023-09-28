@@ -746,6 +746,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Turret
       objectReference: {fileID: 0}
+    - target: {fileID: 7350248615241112363, guid: bf667e8aa30bd6d42877faaf738ae98f, type: 3}
+      propertyPath: missileSpeed
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 7350248615241112363, guid: bf667e8aa30bd6d42877faaf738ae98f, type: 3}
+      propertyPath: missilePrefab
+      value: 
+      objectReference: {fileID: 6252766283008530878, guid: 6140071953ccb1442a3026c6d10c150f, type: 3}
     - target: {fileID: 8426058774271856686, guid: bf667e8aa30bd6d42877faaf738ae98f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.25
