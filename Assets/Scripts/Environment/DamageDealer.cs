@@ -10,8 +10,11 @@ namespace Environment {
             ShipComputer shipComputer = other.gameObject.GetComponent<ShipComputer>();
             if(shipComputer) {
                 shipComputer.OnTakeDamage(damageToHull);
+
+                if(this.GetComponent<Rigidbody>()) { //Rigidbody damage-dealer (like missiles) will be destroyed on crash
+                    Destroy(this.gameObject);
+                }
             }
         }
-
     }
 }

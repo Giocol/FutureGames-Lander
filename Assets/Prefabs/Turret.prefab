@@ -120,4 +120,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   turretRotationSpeed: 1
   timeBeforeShooting: 3
-  reloadingTime: 2
+  reloadingTime: 1
+  missilePrefab: {fileID: 0}
+  missileSpeed: 200
+  missileTimeToLive: 10
