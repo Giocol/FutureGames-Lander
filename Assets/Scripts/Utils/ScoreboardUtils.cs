@@ -1,12 +1,13 @@
-﻿using UnityEngine;
+﻿using System.IO;
+using UnityEngine;
 
 namespace Utils {
-    public class ScoreboardUtils {
+    public static class ScoreboardUtils {
 
-        public static string scoreboardFileName;
+        private static string scoreboardFilePath;
 
         public static void Init(string scoreboardJsonFileName) {
-            ScoreboardUtils.scoreboardFileName = scoreboardJsonFileName;
+            ScoreboardUtils.scoreboardFilePath = Application.persistentDataPath + "/"+ scoreboardJsonFileName;
         }
 
         public static void WriteToScoreboard(string levelName, float score) {
@@ -15,6 +16,12 @@ namespace Utils {
             scoreSo.completionTime = score;
 
             string jsonToWrite = JsonUtility.ToJson(scoreSo, true);
+
+            StreamWriter writer = new StreamWriter(scoreboardFilePath, true);
+            writer.WriteLine(jsonToWrite);
+
+            Debug.Log(scoreboardFilePath);
+            writer.Close();
         }
     }
 }

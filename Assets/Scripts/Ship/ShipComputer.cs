@@ -27,9 +27,7 @@ namespace Ship {
             Debug.Log("Landed!");
             SceneUtils.LoadNextScene();
 
-            LevelScore scoreSo = ScriptableObject.CreateInstance<LevelScore>();
-            scoreSo.levelName = SceneManager.GetActiveScene().name;
-            scoreSo.completionTime = timeSpentInLevel;
+            ScoreboardUtils.WriteToScoreboard(SceneManager.GetActiveScene().name, timeSpentInLevel);
         }
 
         public void OnTakeDamage(int damage) {
