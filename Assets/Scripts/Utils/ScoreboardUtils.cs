@@ -11,9 +11,10 @@ namespace Utils {
         }
 
         public static void WriteToScoreboard(string levelName, float score) {
-            LevelScore scoreSo = ScriptableObject.CreateInstance<LevelScore>();
-            scoreSo.levelName = levelName;
-            scoreSo.completionTime = score;
+            LevelScore scoreSo = new LevelScore {
+                levelName = levelName,
+                completionTime = score
+            };
 
             string jsonToWrite = JsonUtility.ToJson(scoreSo, true);
 
@@ -22,6 +23,16 @@ namespace Utils {
 
             Debug.Log(scoreboardFilePath);
             writer.Close();
+        }
+
+        public static string GetJsonScoreboardFromDisk() {
+            if(File.Exists(scoreboardFilePath)) {
+                StreamReader reader = new StreamReader(scoreboardFilePath);
+                return reader.ReadToEnd();
+            }
+            else {
+                return "No scores tracked";
+            }
         }
     }
 }

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 namespace Utils {
-    public class LevelScore : ScriptableObject {
+    public struct LevelScore {
         public string levelName;
         public float completionTime;
     }
