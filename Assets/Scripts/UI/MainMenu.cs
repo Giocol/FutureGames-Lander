@@ -24,7 +24,6 @@ namespace UI {
         }
 
         private List<LevelScore> ComputeHighestScorePerLevel(string jsonScoreboard) {
-            Debug.Log(jsonScoreboard);
             string[] stringScoreboardArray = jsonScoreboard.Split('}');
 
             List<LevelScore> allScores = new List<LevelScore>();

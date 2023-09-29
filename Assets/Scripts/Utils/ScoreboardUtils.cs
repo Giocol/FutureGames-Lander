@@ -21,7 +21,6 @@ namespace Utils {
             StreamWriter writer = new StreamWriter(scoreboardFilePath, true);
             writer.WriteLine(jsonToWrite);
 
-            Debug.Log(scoreboardFilePath);
             writer.Close();
         }
 
