@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using UI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Utils;
@@ -8,6 +11,7 @@ namespace Ship {
     public class ShipComputer : MonoBehaviour {
 
         [SerializeField] private ShipHull shipHull;
+        [SerializeField] private float timeBeforeRestartAfterDeath = 3;
         private bool isShipDestroyed;
         private float timeSpentInLevel;
 
@@ -34,13 +38,16 @@ namespace Ship {
             shipHull.TakeDamage(damage, out isShipDestroyed);
 
             if(isShipDestroyed) {
-                OnShipDestroyed();
+                StartCoroutine(OnShipDestroyed());
             }
             Debug.Log($"Took damage, {shipHull.HullHealth} HP remaining");
         }
 
-        private void OnShipDestroyed() {
+        private IEnumerator OnShipDestroyed() {
             Debug.Log("Crashed!");
+            //Explosion animation, UI that says you died, then restart the game
+            yield return new WaitForSeconds(timeBeforeRestartAfterDeath);
+            Init.InitGame();
         }
     }
 }
