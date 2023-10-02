@@ -27,7 +27,7 @@ namespace Ship {
             Debug.Log("Landed!");
             SceneUtils.LoadNextScene();
 
-            ScoreboardUtils.WriteToScoreboard(SceneManager.GetActiveScene().name, timeSpentInLevel);
+            ScoreboardUtils.WriteToScoreboard(SceneManager.GetActiveScene().name, timeSpentInLevel, SceneManager.GetActiveScene().buildIndex);
         }
 
         public void OnTakeDamage(int damage) {

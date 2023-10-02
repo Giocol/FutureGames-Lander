@@ -20,27 +20,7 @@ namespace UI {
         private List<LevelScore> highestScores;
 
         private void Start() {
-            highestScores = ComputeHighestScorePerLevel(ScoreboardUtils.GetJsonScoreboardFromDisk());
-        }
-
-        private List<LevelScore> ComputeHighestScorePerLevel(string jsonScoreboard) {
-            string[] stringScoreboardArray = jsonScoreboard.Split('}');
-
-            List<LevelScore> allScores = new List<LevelScore>();
-
-            for(int i = 0; i < stringScoreboardArray.Length - 1; i++ ) { // We don't look at the last element of the stringScoreboard array because it always contains just \n\r
-                allScores.Add(JsonUtility.FromJson<LevelScore>(stringScoreboardArray[i] + "}"));
-            }
-
-            allScores.Sort((a, b) => a.completionTime.CompareTo(b.completionTime));
-
-            List<LevelScore> highestScores = new List<LevelScore>();
-            foreach(LevelScore score in allScores) {
-                if(highestScores.All(e => e.levelName != score.levelName)) {
-                    highestScores.Add(score);
-                }
-            }
-            return highestScores;
+            highestScores = ScoreboardUtils.ComputeHighestScorePerLevel(ScoreboardUtils.GetJsonScoreboardFromDisk());
         }
 
         public void StartGame() {
@@ -60,7 +40,7 @@ namespace UI {
             mainMenuContainer.SetActive(false);
             scoreboardContainer.SetActive(true);
 
-            scoreboardText.text = string.Join("\n\n", highestScores.Select(e => $"Level Name: {e.levelName}\tCompletion Time: {e.completionTime}"));
+            scoreboardText.text = string.Join("\n\n", highestScores.Select(e => $"Level Name: {e.levelName}\tCompletion Time: {e.completionTime}s"));
         }
     }
 
