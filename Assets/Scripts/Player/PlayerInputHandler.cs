@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 namespace Player
 {
     public class PlayerInputHandler : MonoBehaviour {
+        [SerializeField] private GameObject pauseMenuCanvas;
         private ShipPhysics shipPhysics;
         private ShipComputer shipComputer;
         private PlayerControls controls;
@@ -24,6 +25,7 @@ namespace Player
             controls = new PlayerControls();
             directionalThrusterAction = controls.Player.DirectionalThrusters;
             takeoffThrusterAction = controls.Player.TakeoffThruster;
+            controls.Player.Pause.performed += _ => OnPause();
         }
 
         private void Update() {
@@ -42,6 +44,11 @@ namespace Player
 
         private void ReadDirectionalInput(Vector2 direction) {
             shipPhysics.EngageDirectionalThrusters(direction);
+        }
+
+        private void OnPause() {
+            Time.timeScale = 0;
+            pauseMenuCanvas.SetActive(true);
         }
 
         private void OnEnable() {
