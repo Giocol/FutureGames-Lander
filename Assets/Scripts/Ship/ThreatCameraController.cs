@@ -19,6 +19,7 @@ namespace Ship {
         private void Update() {
             if(!hasTarget) {
                 currentTarget = SortingUtils.GetClosestTarget(transform.position, turrets);
+                hasTarget = true;
             }
         }
 
