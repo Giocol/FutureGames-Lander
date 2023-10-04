@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1597870243874616773}
   - component: {fileID: 162493962462469133}
   m_Layer: 0
-  m_Name: Camera
+  m_Name: TurretCamera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -93,7 +93,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 4b850e65c5c185746a0f65bc89a2cbc3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.9922901
+      value: 2.37
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4b850e65c5c185746a0f65bc89a2cbc3, type: 3}
       propertyPath: m_LocalPosition.y
@@ -101,7 +101,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4b850e65c5c185746a0f65bc89a2cbc3, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 4.4468913
+      value: 4.744
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4b850e65c5c185746a0f65bc89a2cbc3, type: 3}
       propertyPath: m_LocalRotation.w

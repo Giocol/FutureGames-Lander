@@ -3,6 +3,7 @@ using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
+using Utils;
 
 namespace AI {
     public class TurretAI : MonoBehaviour {
@@ -29,20 +30,11 @@ namespace AI {
         private void Update() {
             if(!needsToReload) {
                 if(!hasCurrentTarget) { // Select closest ship to target
-                    currentTarget = GetClosestTarget();
+                    currentTarget = SortingUtils.GetClosestTarget(transform.position, targetShips);
                     hasCurrentTarget = true;
                 }
                 RotateTowardsTarget();
             }
-        }
-
-        private GameObject GetClosestTarget() {
-            Debug.Log("Acquiring target");
-            Array.Sort(targetShips, (a, b) => {
-                Vector3 position = transform.position;
-                return Vector3.Distance(a.transform.position, position).CompareTo(Vector3.Distance(b.transform.position, position));
-            });
-            return targetShips[0];
         }
 
         private void RotateTowardsTarget() {
@@ -64,7 +56,7 @@ namespace AI {
             GameObject missile = Instantiate(missilePrefab, transform.position, transform.rotation);
             missile.GetComponentInChildren<Rigidbody>().AddRelativeForce(Vector3.forward * (missileSpeed *Time.fixedDeltaTime), ForceMode.VelocityChange);
             StartCoroutine(WaitSecondsAndDestroyMissile(missile));
-            
+
             needsToReload = true;
             StartCoroutine(Reload());
 
