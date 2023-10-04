@@ -66,7 +66,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 26eba99173f39574a9ba4747f0a7f954, type: 3}
       propertyPath: m_Name
-      value: Dangerous Terrain 1
+      value: Dangerous Terrain
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -75,6 +75,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 26eba99173f39574a9ba4747f0a7f954, type: 3}
       insertIndex: -1
       addedObject: {fileID: 927774373556680429}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 26eba99173f39574a9ba4747f0a7f954, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 9159115310737378932}
   m_SourcePrefab: {fileID: 100100000, guid: 26eba99173f39574a9ba4747f0a7f954, type: 3}
 --- !u!1 &3778613845119748634 stripped
 GameObject:
@@ -94,3 +97,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageToHull: 100
+--- !u!65 &9159115310737378932
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3778613845119748634}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.41767025, y: 0.54099995, z: 0.66613525}
+  m_Center: {x: -0.05578774, y: 0.27049997, z: 0.0071323104}
