@@ -19,12 +19,14 @@ namespace AI {
         private GameObject currentTarget;
         private float timeSpentAiming;
         private bool needsToReload;
+        private GameObject turretCamera;
 
         private void Awake() {
             targetShips = GameObject.FindGameObjectsWithTag("Ship");
             hasCurrentTarget = false;
             timeSpentAiming = 0;
             needsToReload = false;
+            turretCamera = transform.Find("TurretCamera").gameObject;
         }
 
         private void Update() {
@@ -74,6 +76,10 @@ namespace AI {
         private IEnumerator WaitSecondsAndDestroyMissile(GameObject missile) {
             yield return new WaitForSeconds(missileTimeToLive);
             Destroy(missile);
+        }
+
+        public void ToggleCamera(bool enable) {
+            turretCamera.SetActive(enable);
         }
     }
 }
