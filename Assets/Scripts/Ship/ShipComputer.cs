@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Player;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UI;
@@ -45,6 +46,7 @@ namespace Ship {
 
         private IEnumerator OnShipDestroyed() {
             Debug.Log("Crashed!");
+            this.gameObject.GetComponent<PlayerInputHandler>().enabled = false; //take control away from the player
             //Explosion animation, UI that says you died, then restart the game
             yield return new WaitForSeconds(timeBeforeRestartAfterDeath);
             Init.InitGame();
