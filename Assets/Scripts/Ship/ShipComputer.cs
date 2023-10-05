@@ -13,6 +13,7 @@ namespace Ship {
 
         [SerializeField] private ShipHull shipHull;
         [SerializeField] private float timeBeforeRestartAfterDeath = 3;
+        [SerializeField] private GameObject deathUI;
         private bool isShipDestroyed;
         private float timeSpentInLevel;
 
@@ -46,8 +47,9 @@ namespace Ship {
 
         private IEnumerator OnShipDestroyed() {
             Debug.Log("Crashed!");
-            this.gameObject.GetComponent<PlayerInputHandler>().enabled = false; //take control away from the player
-            //Explosion animation, UI that says you died, then restart the game
+            gameObject.GetComponent<PlayerInputHandler>().enabled = false; //take control away from the player
+            deathUI.SetActive(true);
+            //Explosion animation, then restart the game
             yield return new WaitForSeconds(timeBeforeRestartAfterDeath);
             Init.InitGame();
         }
