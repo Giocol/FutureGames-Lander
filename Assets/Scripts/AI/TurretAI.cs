@@ -57,7 +57,7 @@ namespace AI {
             Debug.Log("Shoot missile!");
             GameObject missile = Instantiate(missilePrefab, transform.position, transform.rotation);
             missile.GetComponentInChildren<Rigidbody>().AddRelativeForce(Vector3.forward * (missileSpeed *Time.fixedDeltaTime), ForceMode.VelocityChange);
-            StartCoroutine(WaitSecondsAndDestroyMissile(missile));
+            WaitSecondsAndDestroyMissile(missile);
 
             needsToReload = true;
             StartCoroutine(Reload());
@@ -73,9 +73,8 @@ namespace AI {
             needsToReload = false;
         }
 
-        private IEnumerator WaitSecondsAndDestroyMissile(GameObject missile) {
-            yield return new WaitForSeconds(missileTimeToLive);
-            Destroy(missile);
+        private void WaitSecondsAndDestroyMissile(GameObject missile) {
+            Destroy(missile, missileTimeToLive);
         }
 
         public void ToggleCamera(bool enable) {
