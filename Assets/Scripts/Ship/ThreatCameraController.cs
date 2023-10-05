@@ -10,6 +10,7 @@ namespace Ship {
         [SerializeField] private RawImage turretRenderTextureImage;
         [SerializeField] private float dangerCameraGrowingSpeed = 0.01f;
         [SerializeField] private float maxDistance;
+        [SerializeField] private float cameraSwitchGracePeriod;
 
         private GameObject currentTarget;
         private GameObject[] turrets;
@@ -17,13 +18,14 @@ namespace Ship {
         private float distanceFromCurrentTarget;
         private Vector2 initialAnchoredPosition;
         private Vector2 initialSizeDelta;
-
+        private float timeElapsedOnCurrentCamera;
 
         private void Awake() {
             turrets = GameObject.FindGameObjectsWithTag("Turret");
             hasTarget = false;
             initialAnchoredPosition = turretRenderTextureImage.rectTransform.anchoredPosition;
             initialSizeDelta= turretRenderTextureImage.rectTransform.sizeDelta;
+            timeElapsedOnCurrentCamera = 0;
         }
 
         private void Update() {
@@ -34,14 +36,16 @@ namespace Ship {
                     currentTarget.GetComponent<TurretAI>().ToggleCamera(true);
                     //TODO: run a "danger" sound when new target is acquired
                 }
-                else if(distanceFromCurrentTarget >= maxDistance) {
+                else if(distanceFromCurrentTarget >= maxDistance && timeElapsedOnCurrentCamera > cameraSwitchGracePeriod) {
                     hasTarget = false;
                     distanceFromCurrentTarget = 0;
                     currentTarget.GetComponent<TurretAI>().ToggleCamera(false);
+                    timeElapsedOnCurrentCamera = 0;
                 }
                 else {
                     distanceFromCurrentTarget = Vector3.Distance(transform.position, currentTarget.transform.position);
                     ResizeThreatRenderTexture();
+                    timeElapsedOnCurrentCamera += Time.deltaTime;
                 }
             }
         }

@@ -1687,7 +1687,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e76dc90dab50425cb65976bf731c3021, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  directionalThrustersForce: 10
+  directionalThrustersForce: 5
   takeoffThrusterForce: 10.3
 --- !u!114 &385984807715230643
 MonoBehaviour:
@@ -1738,7 +1738,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   turretRenderTextureImage: {fileID: 4112193954762210897}
   dangerCameraGrowingSpeed: 0.01
-  maxDistance: 15
+  maxDistance: 10
+  cameraSwitchGracePeriod: 0.5
 --- !u!4 &6759148761995454819 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: bff9710488439fb4fbfae458bc4f8515, type: 3}
