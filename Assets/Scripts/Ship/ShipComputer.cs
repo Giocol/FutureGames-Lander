@@ -43,6 +43,10 @@ namespace Ship {
             Debug.Log($"Took damage, {shipHull.HullHealth} HP remaining");
         }
 
+        public void RepairHull(int hpRepaired) {
+            shipHull.RepairHull(hpRepaired);
+        }
+
         private IEnumerator OnShipDestroyed() {
             Debug.Log("Crashed!");
             gameObject.GetComponent<PlayerInputHandler>().enabled = false; //take control away from the player

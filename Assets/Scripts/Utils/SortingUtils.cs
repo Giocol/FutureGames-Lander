@@ -9,7 +9,7 @@ namespace Utils {
             Array.Sort(targets, (a, b) => {
                 return Vector3.Distance(a.transform.position, sourcePosition).CompareTo(Vector3.Distance(b.transform.position, sourcePosition));
             });
-            return targets[0];
+             return targets[0];
         }
     }
 }
