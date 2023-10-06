@@ -171,7 +171,7 @@ MonoBehaviour:
   timeBeforeShooting: 4
   reloadingTime: 2
   missilePrefab: {fileID: 6252766283008530878, guid: 6140071953ccb1442a3026c6d10c150f, type: 3}
-  missileSpeed: 1000
+  missileSpeed: 2000
   missileTimeToLive: 6
 --- !u!4 &2979914882130501720 stripped
 Transform:
