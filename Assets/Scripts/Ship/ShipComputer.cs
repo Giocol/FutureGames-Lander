@@ -17,8 +17,6 @@ namespace Ship {
         private bool isShipDestroyed;
         private float timeSpentInLevel;
 
-        //TODO: consider if it's better to detect collisions here rather than in the terrain
-
         private void Awake() {
             shipHull.RestoreMaxHullHp();
             isShipDestroyed = false;
