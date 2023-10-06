@@ -31,5 +31,12 @@ namespace Ship {
         public void RestoreMaxHullHp() {
             currentHullHealth = maxHullHealth;
         }
+
+        public void RepairHull(int hpRepaired) {
+            currentHullHealth += hpRepaired;
+            if(currentHullHealth > maxHullHealth) {
+                currentHullHealth = maxHullHealth;
+            }
+        }
     }
 }
