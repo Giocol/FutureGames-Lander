@@ -10,6 +10,6 @@ public class HealthUI : MonoBehaviour {
     [SerializeField] private Image hullHealthFill;
 
     private void Update() {
-        hullHealthFill.fillAmount = (float) hull.HullHealth / (float) hull.MaxHullHealth;
+        hullHealthFill.fillAmount = 1 - (float) hull.HullHealth / hull.MaxHullHealth;
     }
 }

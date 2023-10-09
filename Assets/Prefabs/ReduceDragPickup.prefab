@@ -67,7 +67,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7e6d676d14841f493149d15a6020d67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dragReduction: 0.5
+  dragReduction: 0.3
 --- !u!1001 &2512956942258606109
 PrefabInstance:
   m_ObjectHideFlags: 0
