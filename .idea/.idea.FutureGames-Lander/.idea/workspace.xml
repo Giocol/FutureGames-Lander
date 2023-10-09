@@ -6,7 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="ce8be967-b9c8-47cc-93ec-bfcd2baac3cb" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.FutureGames-Lander/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FutureGames-Lander/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AI/TurretAI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/AI/TurretAI.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/CORE.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/CORE.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level1.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,10 +76,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="4392">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" />
+      <option name="pid" value="4392" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -98,7 +99,7 @@
       <workItem from="1696251063269" duration="40000" />
       <workItem from="1696251406318" duration="1047000" />
       <workItem from="1696430800350" duration="3461000" />
-      <workItem from="1696861183449" duration="303000" />
+      <workItem from="1696861183449" duration="1517000" />
     </task>
     <servers />
   </component>
@@ -136,6 +137,19 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/UI/PauseMenu.cs</url>
+          <line>6</line>
+          <properties documentPath="C:\Users\Jo\source\repos\FutureGames\Unity\Lander\FutureGames-Lander\Assets\Scripts\UI\PauseMenu.cs" initialLine="6" containingFunctionPresentation="Method 'Resume'">
+            <startOffsets>
+              <option value="135" />
+            </startOffsets>
+            <endOffsets>
+              <option value="168" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
