@@ -4,6 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 using Utils;
+using Random = UnityEngine.Random;
 
 namespace AI {
     public class TurretAI : MonoBehaviour {
@@ -13,6 +14,7 @@ namespace AI {
         [SerializeField] private GameObject missilePrefab;
         [SerializeField] private float missileSpeed = 100f;
         [SerializeField] private float missileTimeToLive = 10f;
+        [SerializeField] private float timeBeforeShootingMaxRand = 1f;
 
         private GameObject[] targetShips;
         private bool hasCurrentTarget;
@@ -34,6 +36,7 @@ namespace AI {
                 if(!hasCurrentTarget) { // Select closest ship to target
                     currentTarget = SortingUtils.GetClosestTarget(transform.position, targetShips);
                     hasCurrentTarget = true;
+                    timeBeforeShooting += Random.Range(-timeBeforeShootingMaxRand, timeBeforeShootingMaxRand);
                 }
                 RotateTowardsTarget();
             }
@@ -70,6 +73,7 @@ namespace AI {
             hasCurrentTarget = false;
             Debug.Log("reloading");
             yield return new WaitForSeconds(reloadingTime);
+            timeBeforeShooting += Random.Range(-timeBeforeShootingMaxRand, timeBeforeShootingMaxRand);
             needsToReload = false;
         }
 
