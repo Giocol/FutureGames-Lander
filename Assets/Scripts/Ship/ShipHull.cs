@@ -9,6 +9,7 @@ namespace Ship {
         [SerializeField] private int maxHullHealth;
 
         public int HullHealth => currentHullHealth;
+        public int MaxHullHealth => maxHullHealth;
 
 
         /// <summary>

@@ -180,5 +180,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8122b89bec594f06af12598bbebc78a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageToHull: 50
+  damageToHull: 20
   destroyOnCrash: 0
