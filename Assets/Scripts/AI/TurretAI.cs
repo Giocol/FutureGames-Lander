@@ -9,13 +9,14 @@ using Random = UnityEngine.Random;
 namespace AI {
     public class TurretAI : MonoBehaviour {
         [SerializeField] private float turretRotationSpeed = 1f;
-        [SerializeField] private float timeBeforeShooting = 4f;
+        [SerializeField] private float minTimeBeforeShooting = 4f;
+        [SerializeField] private float maxTimeBeforeShooting = 8f;
         [SerializeField] private float reloadingTime = 2f;
         [SerializeField] private GameObject missilePrefab;
         [SerializeField] private float missileSpeed = 100f;
         [SerializeField] private float missileTimeToLive = 10f;
-        [SerializeField] private float timeBeforeShootingMaxRand = 1f;
 
+        private float timeBeforeShooting;
         private GameObject[] targetShips;
         private bool hasCurrentTarget;
         private GameObject currentTarget;
@@ -36,7 +37,7 @@ namespace AI {
                 if(!hasCurrentTarget) { // Select closest ship to target
                     currentTarget = SortingUtils.GetClosestTarget(transform.position, targetShips);
                     hasCurrentTarget = true;
-                    timeBeforeShooting += Random.Range(-timeBeforeShootingMaxRand, timeBeforeShootingMaxRand);
+                    timeBeforeShooting = Random.Range(minTimeBeforeShooting, maxTimeBeforeShooting);
                 }
                 RotateTowardsTarget();
             }
@@ -71,9 +72,9 @@ namespace AI {
             //Reset variables and acquire new target
             timeSpentAiming = 0;
             hasCurrentTarget = false;
-            Debug.Log("reloading");
+            Debug.Log(timeBeforeShooting);
             yield return new WaitForSeconds(reloadingTime);
-            timeBeforeShooting += Random.Range(-timeBeforeShootingMaxRand, timeBeforeShootingMaxRand);
+            timeBeforeShooting += Random.Range(minTimeBeforeShooting, maxTimeBeforeShooting);
             needsToReload = false;
         }
 
