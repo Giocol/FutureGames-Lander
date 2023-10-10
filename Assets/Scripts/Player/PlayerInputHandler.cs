@@ -10,6 +10,7 @@ namespace Player
         private ShipComputer shipComputer;
         private PlayerControls controls;
         private InputAction directionalThrusterAction;
+        private InputAction yawThrusterAction;
         private InputAction takeoffThrusterAction;
 
         private void Awake() {
@@ -24,12 +25,14 @@ namespace Player
             }
             controls = new PlayerControls();
             directionalThrusterAction = controls.Player.DirectionalThrusters;
+            yawThrusterAction = controls.Player.RotationalThrusters;
             takeoffThrusterAction = controls.Player.TakeoffThruster;
             controls.Player.Pause.performed += _ => OnPause();
         }
 
         private void Update() {
             ReadDirectionalInput(directionalThrusterAction.ReadValue<Vector2>());
+            ReadYawInput(yawThrusterAction.ReadValue<float>());
             ReadTakeoffInput(takeoffThrusterAction.inProgress);
         }
 
@@ -44,6 +47,10 @@ namespace Player
 
         private void ReadDirectionalInput(Vector2 direction) {
             shipPhysics.EngageDirectionalThrusters(direction);
+        }
+
+        private void ReadYawInput(float yaw) {
+            shipPhysics.EngageYawThrusters(yaw);
         }
 
         private void OnPause() {

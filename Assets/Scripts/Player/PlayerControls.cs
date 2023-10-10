@@ -53,6 +53,15 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""RotationalThrusters"",
+                    ""type"": ""Value"",
+                    ""id"": ""2fc68820-b3f7-4d19-bd78-a8e7ebad1c3b"",
+                    ""expectedControlType"": ""Axis"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -132,6 +141,39 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""action"": ""Pause"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""1D Axis"",
+                    ""id"": ""cb6ac9de-6cf1-46c6-962f-e10d076df372"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""RotationalThrusters"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""978ca782-7436-4a62-b0b0-f6dfb5793616"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""RotationalThrusters"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""0a0bc3a5-e8a7-4e12-ba11-888f9f194989"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""RotationalThrusters"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         }
@@ -143,6 +185,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_Player_DirectionalThrusters = m_Player.FindAction("DirectionalThrusters", throwIfNotFound: true);
         m_Player_TakeoffThruster = m_Player.FindAction("TakeoffThruster", throwIfNotFound: true);
         m_Player_Pause = m_Player.FindAction("Pause", throwIfNotFound: true);
+        m_Player_RotationalThrusters = m_Player.FindAction("RotationalThrusters", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -207,6 +250,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_DirectionalThrusters;
     private readonly InputAction m_Player_TakeoffThruster;
     private readonly InputAction m_Player_Pause;
+    private readonly InputAction m_Player_RotationalThrusters;
     public struct PlayerActions
     {
         private @PlayerControls m_Wrapper;
@@ -214,6 +258,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         public InputAction @DirectionalThrusters => m_Wrapper.m_Player_DirectionalThrusters;
         public InputAction @TakeoffThruster => m_Wrapper.m_Player_TakeoffThruster;
         public InputAction @Pause => m_Wrapper.m_Player_Pause;
+        public InputAction @RotationalThrusters => m_Wrapper.m_Player_RotationalThrusters;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -232,6 +277,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Pause.started += instance.OnPause;
             @Pause.performed += instance.OnPause;
             @Pause.canceled += instance.OnPause;
+            @RotationalThrusters.started += instance.OnRotationalThrusters;
+            @RotationalThrusters.performed += instance.OnRotationalThrusters;
+            @RotationalThrusters.canceled += instance.OnRotationalThrusters;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -245,6 +293,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Pause.started -= instance.OnPause;
             @Pause.performed -= instance.OnPause;
             @Pause.canceled -= instance.OnPause;
+            @RotationalThrusters.started -= instance.OnRotationalThrusters;
+            @RotationalThrusters.performed -= instance.OnRotationalThrusters;
+            @RotationalThrusters.canceled -= instance.OnRotationalThrusters;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -267,5 +318,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         void OnDirectionalThrusters(InputAction.CallbackContext context);
         void OnTakeoffThruster(InputAction.CallbackContext context);
         void OnPause(InputAction.CallbackContext context);
+        void OnRotationalThrusters(InputAction.CallbackContext context);
     }
 }
