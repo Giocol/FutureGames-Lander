@@ -72,7 +72,7 @@ namespace AI {
             //Reset variables and acquire new target
             timeSpentAiming = 0;
             hasCurrentTarget = false;
-            Debug.Log(timeBeforeShooting);
+            Debug.Log("reloading");
             yield return new WaitForSeconds(reloadingTime);
             timeBeforeShooting += Random.Range(minTimeBeforeShooting, maxTimeBeforeShooting);
             needsToReload = false;
