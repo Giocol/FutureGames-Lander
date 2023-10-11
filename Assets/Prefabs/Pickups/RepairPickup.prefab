@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2391888222743375813}
   - component: {fileID: 8860313071338586847}
   - component: {fileID: 3462335464889558443}
+  - component: {fileID: -8988689796835700607}
   m_Layer: 0
   m_Name: RepairPickup
   m_TagString: Untagged
@@ -68,6 +69,20 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.46708047, y: 0.52155423, z: 0.35658795}
   m_Center: {x: -0.0018134713, y: -0.0011645555, z: 0.18623176}
+--- !u!114 &-8988689796835700607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2883498489111812688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0e466d6ff134ccdb04e5bdb45fe2279, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  floatingSpeed: 2
+  floatingAmplitude: 0.5
 --- !u!1001 &7879589630816785678
 PrefabInstance:
   m_ObjectHideFlags: 0

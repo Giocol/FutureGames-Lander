@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1143160584062488682}
   - component: {fileID: 3664628148435555173}
   - component: {fileID: 7551953927633348070}
+  - component: {fileID: -5870428187284281243}
   m_Layer: 0
   m_Name: ReduceDragPickup
   m_TagString: Untagged
@@ -68,6 +69,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dragReduction: 0.3
+--- !u!114 &-5870428187284281243
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3188864539072591876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0e466d6ff134ccdb04e5bdb45fe2279, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  floatingSpeed: 2
+  floatingAmplitude: 0.5
 --- !u!1001 &2512956942258606109
 PrefabInstance:
   m_ObjectHideFlags: 0
