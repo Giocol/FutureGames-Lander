@@ -10,8 +10,8 @@ The `Floater.cs` class started off from https://forum.unity.com/threads/how-to-m
 ### Manual
 Your ship has been critically damaged, the online online systems are your **emergency thrusters** and your **threat camera feed**. Land on a landing pad to proceed to the next section. Your **shields are offline**, your ship is not gonna be able to survive even the slightest impact with the rocky formations of the planet, and it can only take a few missles before full meltdown. Your **threat camera feed** is going to display what the nearest threat is seeing at the moment, use it to your advantage.
 There are two different kinds of **pickups** you can find, they'll help you get to the landing zone in one piece.
-- **Hull repair pickup** ![Hull Repair Pickup](pickup_health.png) Repairs the hull
-- **Drag reduction pickup** ![Hull Repair Pickup](pickup_drag.png) Brings the drag-reduction system back online, reducing the ship's percieved drag.
+- **Hull repair pickup**  Repairs the hull ![Hull Repair Pickup](pickup_health.png)
+- **Drag reduction pickup**  Brings the drag-reduction system back online, reducing the ship's percieved drag.![Hull Repair Pickup](pickup_drag.png) 
 
 #### Editor-specific notes
 You can start the game from any scene, thanks to the `Init.cs` script :\)
