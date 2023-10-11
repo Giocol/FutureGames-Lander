@@ -8,7 +8,6 @@ Even if I ended up not using a lot of it, I took inspiration and modified some c
 The `Init` class was lifted pretty much verbatim from one of the lectures :\)
 The `Floater` class started off from https://forum.unity.com/threads/how-to-make-an-object-move-up-and-down-on-a-loop.380159/
 Lastly, but most importantly, talking to my collegues and our mentor got me the most useful pieces of advice! Specifically, me and Albin Samuelsson brainstomred a missile spawining and physics approach that we ended up using in both of our games :\)
-A WebGL build should be playble at https://battledumpling.itch.io/lander-fg using password `futuregames`
 
 ---
 
