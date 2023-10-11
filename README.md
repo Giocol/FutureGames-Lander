@@ -5,6 +5,7 @@
 ### References
 Given the small scope of the project, I tried to use the Unity Docs as much as possible, rather than relying too much on stackoverflow/unity forums and other sources of that kind. I of course still looked things up here and there, but nothing major. 
 Even if I ended up not using a lot of it, I took inspiration and modified some code snippets from this talk about Scriptable Objects https://www.youtube.com/watch?v=raQ3iHhE_Kk. I wanted to implement an event system based on the one he demo-d in the talk, but I ended up scrapping it and now the only remains of it are in the never-merged `feature/so_events` branch.
+All assets are from https://kenney.nl/, UI elements included! It's a CC0 license.
 The `Init` class was lifted pretty much verbatim from one of the lectures :\)
 The `Floater` class started off from https://forum.unity.com/threads/how-to-make-an-object-move-up-and-down-on-a-loop.380159/
 Lastly, but most importantly, talking to my collegues and our mentor got me the most useful pieces of advice! Specifically, me and Albin Samuelsson brainstomred a missile spawining and physics approach that we ended up using in both of our games :\)
