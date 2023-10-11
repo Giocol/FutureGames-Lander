@@ -54,7 +54,7 @@ I tried to keep the folder structure tidy by organizing the scripts in namespace
 There a bunch of things that I would have liked to improve and/or implement having the time, I'm going to list a few in no particular order
 
 * `TurretAI` does too many things. It should have been divided in a class that generates the input, and one that handles the physics/movement/shooting, allowing for easy implementation of stuff like player-controlled turrets for asymmetrical multiplayer, kind of like what I did for the ship's controls.
-* The game is not very fun! While this isn't super relevant for the assignment, I spent too much time building system and too little time making them interact with eachother to find what's fun, I should have handled my time better in that sense
+* The game is not very fun! While this isn't super relevant for the assignment, I spent too much time building system and too little time making them interact with each other to find what's fun, I should have handled my time better in that sense
 * The game is lacking VFX and SFX! It's another minor thing, but it would help a lot! I started working on some fun shader stuff but I haven't been able to finish it, I'll try to do it after the deadline
 * Utils, with all its static, might have been designed a bit better
 * While I think I did a pretty good job at keeping most things modular, most of the classes I wrote are MonoBehaviors, I would have liked to have fewer of those and more logic in non-MB classes.
